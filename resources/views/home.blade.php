@@ -24,8 +24,9 @@
                         ng-click="getPetList(null)">ทั้งหมด
                     </a>
 
-                    <a href="#" class="list-group-item" ng-repeat="t in pettype" ng-click="getPetList(t)"
-                        ng-class="{'active': pettype.id == t.id}">@{t.type_pet}</a>
+                    <a href="#" class="list-group-item" ng-repeat="t in pettypes" ng-click="getPetList(t)"
+                        ng-class="{'active': pettype.id == t.id}">@{t.type_pet}
+                    </a>
 
 
                 </div>
@@ -93,6 +94,7 @@
         app.controller('ctrl', function($scope, petService) {
 
             $scope.pet = []; //นศ.ลบข้อมูล mockup ที่ สร้างเป็น array ทิ้งไปก่อน แล้วแทนที่
+            $scope.pettype = {};
             $scope.getPetList = function(pettype) {
 
                 $scope.pettype = pettype;
@@ -105,21 +107,33 @@
             };
             $scope.getPetList(null); //< เรียกใช้ ฟังก์ชัน getProductList()
 
-            $scope.pettype = [];
+
+
+
+
+
+
+
+            $scope.pettypes = [];
             $scope.getPettypeList = function() {
                 petService.getPettypeList().then(function(res) {
                     if (!res.data.ok) return;
-                    $scope.pettype = res.data.pettype;
+                    $scope.pettypes = res.data.pettype;
                 });
             };
             $scope.getPettypeList();
 
+
+
+            
             $scope.searchPet = function(e) {
                 petService.searchPet($scope.query).then(function(res) {
                     if (!res.data.ok) return;
                     $scope.pet = res.data.pet;
                 });
             };
+
+
 
 
             $scope.addToCart = function(p) {

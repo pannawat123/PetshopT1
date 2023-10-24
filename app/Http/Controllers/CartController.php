@@ -60,5 +60,12 @@ class CartController extends Controller
         return redirect('cart/view');
     }
 
+        
+    public function checkout()
+    {
+        Session::forget('cart_items');
+        return redirect('home');
+    }
+
 
 }
