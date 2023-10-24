@@ -25,7 +25,7 @@
                 <tbody>
                     @foreach ($cart_items as $c)
                         <tr>
-                            <td><img src="{{ asset($c['image_url']) }}" height="36"></td>
+                            <td><img src="{{ asset($c['image_url']) }}" height="150"></td>
                             <td>{{ $c['name'] }}</td>
                             <td>{{ $c['gender'] }}</td>
                             <td><input type="text" class="form-control" value="{{ $c['qty'] }}"

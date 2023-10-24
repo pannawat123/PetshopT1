@@ -26,8 +26,8 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ URL::to('home') }}">หน้าแรก</a></li> @guest
                     @else 
-                    {{-- <li><a href="{{ URL::to('pet') }}">สัตว์เลี้ยง</a></li> --}}
-                    <li><a href="#">รายงาน</a></li> @endguest
+                    <li><a href="#">รายงาน</a></li> 
+                    @endguest
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
